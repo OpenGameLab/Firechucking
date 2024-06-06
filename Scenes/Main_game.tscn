@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqih10vtj33va"]
+
+[ext_resource type="PackedScene" uid="uid://bhy335y16kpdy" path="res://Scenes/Tilemap.tscn" id="1_e761r"]
+[ext_resource type="PackedScene" uid="uid://dhex0153wsumk" path="res://Scenes/Player.tscn" id="1_ehaq1"]
+[ext_resource type="PackedScene" uid="uid://da62sf561rx34" path="res://Scenes/BadGuy.tscn" id="3_4b7qr"]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ehaq1")]
+
+[node name="Tilemap" parent="." instance=ExtResource("1_e761r")]
+layer_0/tile_data = PackedInt32Array(1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983065, 0, 0, 983064, 0, 0, 983063, 0, 0, 983062, 0, 0, 983061, 0, 0, 983060, 0, 0, 1179653, 0, 0, 1179652, 0, 0, 1179651, 0, 0, 1179650, 0, 0, 1179649, 0, 0, 1179648, 0, 0, 1245183, 0, 0, 1245182, 0, 0, 1245181, 0, 0, 1245180, 0, 0, 1245179, 0, 0, 1245178, 0, 0, 1245177, 0, 0, 1245176, 0, 0, 1114114, 0, 0, 1179646, 0, 0, 1179642, 0, 0, 1114106, 0, 0, 1179643, 0, 0, 1245175, 0, 0, 1245174, 0, 0, 1245173, 0, 0, 1245172, 0, 0, 1245171, 0, 0, 1245170, 0, 0, 1245169, 0, 0, 1245168, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="BadGuy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_4b7qr")]
+position = Vector2(942, 451)
+player = NodePath("../Player")

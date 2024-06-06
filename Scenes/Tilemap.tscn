@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhy335y16kpdy"]
+
+[ext_resource type="Texture2D" uid="uid://b6h4dcwco3fv2" path="res://Assets/grass.png" id="1_rndba"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy16c"]
+texture = ExtResource("1_rndba")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_vnjcp"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vy16c")
+
+[node name="Tilemap" type="TileMap"]
+tile_set = SubResource("TileSet_vnjcp")
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(2031624, 0, 0, 2031625, 0, 0, 2031626, 0, 0, 2031627, 0, 0, 2031628, 0, 0, 2031629, 0, 0, 2031630, 0, 0, 2031631, 0, 0, 2031632, 0, 0, 2031633, 0, 0, 2031634, 0, 0, 2031635, 0, 0, 2031636, 0, 0, 2031637, 0, 0, 2031638, 0, 0, 2031639, 0, 0, 2031640, 0, 0, 2031641, 0, 0, 2031642, 0, 0, 2031643, 0, 0, 2031644, 0, 0, 2031645, 0, 0, 2031646, 0, 0, 2031647, 0, 0, 2031648, 0, 0, 2031649, 0, 0, 2031650, 0, 0, 2031651, 0, 0, 2031652, 0, 0, 2031653, 0, 0, 2031655, 0, 0, 2031657, 0, 0, 2031658, 0, 0, 2031659, 0, 0, 2031660, 0, 0, 2031661, 0, 0, 2031662, 0, 0, 2031663, 0, 0, 2031664, 0, 0, 2031665, 0, 0, 2031666, 0, 0, 2031667, 0, 0, 2031668, 0, 0, 2031669, 0, 0, 2031670, 0, 0, 2031671, 0, 0, 2031672, 0, 0, 2031673, 0, 0, 2031674, 0, 0, 2031675, 0, 0, 2031676, 0, 0, 2031677, 0, 0, 2031678, 0, 0, 2031679, 0, 0, 2031680, 0, 0, 1900595, 0, 0, 1835059, 0, 0, 1769523, 0, 0, 1703987, 0, 0, 1638451, 0, 0, 1900563, 0, 0, 1900561, 0, 0, 1900559, 0, 0)
+layer_1/tile_data = PackedInt32Array()

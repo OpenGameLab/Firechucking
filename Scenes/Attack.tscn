@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://fw586spcxwo0"]
+
+[ext_resource type="Texture2D" uid="uid://cehbd0xmywi33" path="res://MiniIcon.svg" id="1_ka8dn"]
+[ext_resource type="Script" path="res://Scenes/Attack.gd" id="1_uprlx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jtgk0"]
+width = 1
+height = 1
+generate_mipmaps = false
+
+[sub_resource type="Gradient" id="Gradient_nvyht"]
+colors = PackedColorArray(0, 0, 0, 1, 0.961271, 0.000707209, 0.0126649, 1)
+
+[sub_resource type="Gradient" id="Gradient_ko5ei"]
+colors = PackedColorArray(0.999898, 0.434912, 0.366248, 1, 1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37m1m"]
+size = Vector2(119.467, 119.467)
+
+[node name="Attack" type="CharacterBody2D"]
+script = ExtResource("1_uprlx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+top_level = true
+amount = 50
+lifetime = 6.31
+speed_scale = 3.59
+explosiveness = 0.25
+randomness = 0.21
+lifetime_randomness = 0.04
+fract_delta = false
+draw_order = 1
+texture = SubResource("NoiseTexture2D_jtgk0")
+emission_shape = 2
+emission_sphere_radius = 103.13
+gravity = Vector2(0, 0)
+linear_accel_min = 32.32
+linear_accel_max = 48.48
+damping_min = 9.091
+damping_max = 37.373
+angle_min = 465.5
+angle_max = 465.5
+scale_amount_min = 0.0
+scale_amount_max = 292.92
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color = Color(0.842943, 0.0516869, 0.0294046, 1)
+color_ramp = SubResource("Gradient_nvyht")
+color_initial_ramp = SubResource("Gradient_ko5ei")
+
+[node name="MiniIcon" type="Sprite2D" parent="."]
+modulate = Color(32.433, 0, 0.267, 1)
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("1_ka8dn")
+
+[node name="AttackHitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.42109e-14)
+scale = Vector2(0.117188, 0.117188)
+shape = SubResource("RectangleShape2D_37m1m")

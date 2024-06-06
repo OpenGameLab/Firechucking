@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://da62sf561rx34"]
+
+[ext_resource type="Script" path="res://BadGuy.gd" id="1_32yt5"]
+[ext_resource type="Texture2D" uid="uid://dbe2ujls1p1dl" path="res://icon.svg" id="2_tawbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpdkj"]
+size = Vector2(125.75, 127)
+
+[node name="BadGuy" type="CharacterBody2D" groups=["Bad Guy"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_32yt5")
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(28.057, 0.522, 0.705, 1)
+self_modulate = Color(67.985, 1, 1, 1)
+position = Vector2(-0.5, 0)
+scale = Vector2(0.992188, 1)
+texture = ExtResource("2_tawbi")
+
+[node name="BadGuyHitBox" type="CollisionShape2D" parent="."]
+position = Vector2(-0.875, -0.5)
+shape = SubResource("RectangleShape2D_gpdkj")
+
+[node name="FrontRay" type="RayCast2D" parent="."]
+scale = Vector2(0.992188, 0.992)
+target_position = Vector2(-180, 0)
+
+[node name="GapRay" type="RayCast2D" parent="."]
+position = Vector2(0, -62)
+scale = Vector2(0.992188, 0.992)
+target_position = Vector2(-201.575, 290.323)
