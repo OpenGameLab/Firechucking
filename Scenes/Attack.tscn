@@ -20,7 +20,12 @@ size = Vector2(119.467, 119.467)
 [node name="Attack" type="CharacterBody2D"]
 script = ExtResource("1_uprlx")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="MiniIcon" type="Sprite2D" parent="."]
+modulate = Color(32.433, 0, 0.267, 1)
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("1_ka8dn")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="MiniIcon"]
 top_level = true
 amount = 50
 lifetime = 6.31
@@ -28,7 +33,7 @@ speed_scale = 3.59
 explosiveness = 0.25
 randomness = 0.21
 lifetime_randomness = 0.04
-fract_delta = false
+local_coords = true
 draw_order = 1
 texture = SubResource("NoiseTexture2D_jtgk0")
 emission_shape = 2
@@ -48,11 +53,6 @@ scale_curve_y = null
 color = Color(0.842943, 0.0516869, 0.0294046, 1)
 color_ramp = SubResource("Gradient_nvyht")
 color_initial_ramp = SubResource("Gradient_ko5ei")
-
-[node name="MiniIcon" type="Sprite2D" parent="."]
-modulate = Color(32.433, 0, 0.267, 1)
-scale = Vector2(0.117188, 0.117188)
-texture = ExtResource("1_ka8dn")
 
 [node name="AttackHitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.42109e-14)

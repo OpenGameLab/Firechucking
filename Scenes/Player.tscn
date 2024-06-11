@@ -10,39 +10,39 @@ size = Vector2(123.75, 125.5)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hh0yh"]
 
-[node name="PlayerRoot" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
-
-[node name="Player" type="CharacterBody2D" parent="." groups=["Good Guys"]]
+[node name="Player" type="CharacterBody2D" groups=["Good Guys"]]
 script = ExtResource("1_qoifx")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-0.5, 0)
-scale = Vector2(0.992188, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-20, -20)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ru7up")
 
-[node name="PlayerHitbox" type="CollisionShape2D" parent="Player"]
+[node name="PlayerHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-20, -20)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_gpdkj")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 2)
 
-[node name="AttackCooldown" type="Timer" parent="Player"]
+[node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[node name="AttackOrginRight" type="Node2D" parent="Player"]
-position = Vector2(150, 0)
+[node name="AttackOrginRight" type="Node2D" parent="."]
+position = Vector2(60, -20)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player/AttackOrginRight"]
+[node name="Sprite2D" type="Sprite2D" parent="AttackOrginRight"]
 scale = Vector2(25, 25)
 texture = SubResource("PlaceholderTexture2D_efb1m")
 
-[node name="AttackOrginLeft" type="Node2D" parent="Player"]
-position = Vector2(-150, 0)
+[node name="AttackOrginLeft" type="Node2D" parent="."]
+position = Vector2(-100, -20)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player/AttackOrginLeft"]
+[node name="Sprite2D" type="Sprite2D" parent="AttackOrginLeft"]
 position = Vector2(-6.19888e-06, 2.38419e-07)
 scale = Vector2(25, 25)
 texture = SubResource("PlaceholderTexture2D_hh0yh")
 
-[connection signal="timeout" from="Player/AttackCooldown" to="Player" method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

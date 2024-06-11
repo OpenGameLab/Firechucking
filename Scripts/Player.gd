@@ -35,8 +35,9 @@ func _physics_process(delta):
 			attacking = true
 			var projectile = Projectile.instantiate()
 			#projectile.position = Attackpoint.position
-			Root.add_child(projectile)
 			projectile.global_position = AttackpointLeft.global_position
+			AttackpointLeft.add_child(projectile)
+			
 			print("Debug : Attacking Left")
 			AttackCooldown.start(2)
 			
@@ -47,7 +48,8 @@ func _physics_process(delta):
 			attacking = true
 			var projectile = Projectile.instantiate()
 			#projectile.position = Attackpoint.position
-			Root.add_child(projectile)
+			
+			AttackpointRight.add_child(projectile)
 			projectile.global_position = AttackpointRight.global_position
 			print("Debug : Attacking right")
 			AttackCooldown.start(2)
@@ -66,6 +68,28 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("ui_right") : Player.scale.x = -1
 	move_and_slide()
 	
+	var testcollision = get_last_slide_collision()
+	if testcollision != null :
+		var collided = testcollision.get_collider()
+		if not collided.is_in_group("Bad Guy") : 
+			var hit = testcollision.get_collider()
+			var vec = hit.local_to_map(Vector2(global_position.x , global_position.y +32 ))
+			#print(vec)
+			var data = hit.get_cell_tile_data(0, vec)
+			##can the current tile be destroyed or climbed on
+		
+			if data : 
+				var _destroy = data.get_custom_data("Destructible") # TODO: Add something to check for and support blowing up tiles
+				var  _ladder =  data.get_custom_data("Climbing") # TODO:  Add something to check for and support climbing lad
+
+		#print((testcollision.get_coords_for_body_rid(testcollision)))
+		#print(testcollision.get_collider_rid() + "Collided with the tilemap on this node")
+		#print(testcollision.get_collider().get_coords_for_body_rid(hit))
+		#print(hit.get_cell_tile_data(0, vec))
+
+
+
+		#print(testcollision.get_collider().get_surrounding_cells(global_position))
 
 func _on_attack_cooldown_timeout():
 	attacking = false

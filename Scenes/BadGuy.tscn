@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://da62sf561rx34"]
 
-[ext_resource type="Script" path="res://BadGuy.gd" id="1_32yt5"]
+[ext_resource type="Script" path="res://Scripts/BadGuy.gd" id="1_syffc"]
 [ext_resource type="Texture2D" uid="uid://dbe2ujls1p1dl" path="res://icon.svg" id="2_tawbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpdkj"]
 size = Vector2(125.75, 127)
 
 [node name="BadGuy" type="CharacterBody2D" groups=["Bad Guy"]]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_32yt5")
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_syffc")
 metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

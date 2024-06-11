@@ -1,23 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhy335y16kpdy"]
+[gd_scene load_steps=12 format=3 uid="uid://bhy335y16kpdy"]
 
-[ext_resource type="Texture2D" uid="uid://b6h4dcwco3fv2" path="res://Assets/grass.png" id="1_rndba"]
+[ext_resource type="Texture2D" uid="uid://bxpybqhslwbq6" path="res://Assets/PlaceholderAtlas.png" id="1_wjc5l"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy16c"]
-texture = ExtResource("1_rndba")
+[sub_resource type="TileMapPattern" id="TileMapPattern_4v4vj"]
+tile_data = PackedInt32Array(0, 12, 2, 1, 12, 2, 2, 12, 2, 3, 12, 2, 4, 12, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_myoig"]
+tile_data = PackedInt32Array(0, 12, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 5, 12, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3s3ig"]
+tile_data = PackedInt32Array(0, 12, 1, 65536, 12, 1, 131072, 12, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ey2pg"]
+tile_data = PackedInt32Array(0, 12, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 5, 12, 0, 6, 12, 0, 7, 12, 0, 8, 12, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_egxck"]
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_grrrl"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cu347"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ciyld"]
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iac6b"]
+texture = ExtResource("1_wjc5l")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16, -16, -16)
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_egxck")
+0:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_grrrl")
+0:1/0/custom_data_1 = true
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -8, -16, -8)
+0:2/0/physics_layer_0/polygon_0/one_way = true
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cu347")
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ciyld")
 
 [sub_resource type="TileSet" id="TileSet_vnjcp"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_vy16c")
+navigation_layer_0/layers = 1
+custom_data_layer_0/name = "Destructible"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Climbing"
+custom_data_layer_1/type = 1
+sources/12 = SubResource("TileSetAtlasSource_iac6b")
+tile_proxies/coords_level = [[4, Vector2i(0, 0)], [6, Vector2i(0, 0)], [7, Vector2i(0, 0)], [12, Vector2i(0, 0)], [8, Vector2i(0, 0)], [12, Vector2i(0, 1)], [9, Vector2i(0, 0)], [12, Vector2i(0, 2)], [10, Vector2i(0, 0)], [12, Vector2i(0, 3)]]
+pattern_0 = SubResource("TileMapPattern_4v4vj")
+pattern_1 = SubResource("TileMapPattern_myoig")
+pattern_2 = SubResource("TileMapPattern_3s3ig")
+pattern_3 = SubResource("TileMapPattern_ey2pg")
 
 [node name="Tilemap" type="TileMap"]
 tile_set = SubResource("TileSet_vnjcp")
 collision_animatable = true
 format = 2
-layer_0/tile_data = PackedInt32Array(2031624, 0, 0, 2031625, 0, 0, 2031626, 0, 0, 2031627, 0, 0, 2031628, 0, 0, 2031629, 0, 0, 2031630, 0, 0, 2031631, 0, 0, 2031632, 0, 0, 2031633, 0, 0, 2031634, 0, 0, 2031635, 0, 0, 2031636, 0, 0, 2031637, 0, 0, 2031638, 0, 0, 2031639, 0, 0, 2031640, 0, 0, 2031641, 0, 0, 2031642, 0, 0, 2031643, 0, 0, 2031644, 0, 0, 2031645, 0, 0, 2031646, 0, 0, 2031647, 0, 0, 2031648, 0, 0, 2031649, 0, 0, 2031650, 0, 0, 2031651, 0, 0, 2031652, 0, 0, 2031653, 0, 0, 2031655, 0, 0, 2031657, 0, 0, 2031658, 0, 0, 2031659, 0, 0, 2031660, 0, 0, 2031661, 0, 0, 2031662, 0, 0, 2031663, 0, 0, 2031664, 0, 0, 2031665, 0, 0, 2031666, 0, 0, 2031667, 0, 0, 2031668, 0, 0, 2031669, 0, 0, 2031670, 0, 0, 2031671, 0, 0, 2031672, 0, 0, 2031673, 0, 0, 2031674, 0, 0, 2031675, 0, 0, 2031676, 0, 0, 2031677, 0, 0, 2031678, 0, 0, 2031679, 0, 0, 2031680, 0, 0, 1900595, 0, 0, 1835059, 0, 0, 1769523, 0, 0, 1703987, 0, 0, 1638451, 0, 0, 1900563, 0, 0, 1900561, 0, 0, 1900559, 0, 0)
+layer_0/tile_data = PackedInt32Array(131069, 12, 0, 131070, 12, 0, 196606, 12, 0, 196607, 12, 0, 131072, 12, 0, 131073, 12, 0, 131074, 12, 0, 131075, 12, 0, 65540, 12, 0, 65541, 12, 0, 65542, 12, 0, 65543, 12, 0, 131068, 12, 0, 131067, 12, 0, 65544, 12, 0, 65545, 12, 0, 65546, 12, 0, 65547, 12, 0, -262132, 12, 0, -262131, 12, 0, -262130, 12, 0, -262129, 12, 0, -196591, 12, 0, -131054, 12, 0, -131053, 12, 0, -196588, 12, 0, -262123, 12, 0, -65513, 12, 3, -65512, 12, 3, -65511, 12, 3, -65510, 12, 3, -65509, 12, 3, -196580, 12, 2, -327652, 12, 2, -458724, 12, 2, -589796, 12, 2, -589798, 12, 2, -589799, 12, 0, -589800, 12, 0, -589801, 12, 0, -589802, 12, 0, -589803, 12, 0, -589804, 12, 0, -589805, 12, 0, -589806, 12, 0, -589807, 12, 0, -589808, 12, 0, -589809, 12, 0, -655343, 12, 0, -720880, 12, 0, -786417, 12, 0, -851954, 12, 0, -917491, 12, 0, -917492, 12, 1, -851956, 12, 1, -786420, 12, 1, -720884, 12, 1, -655348, 12, 1, -589812, 12, 0, -589813, 12, 0, -589814, 12, 0, -589815, 12, 0, -589816, 12, 0, -589817, 12, 0, -589818, 12, 0, -589819, 12, 0, -589820, 12, 0, -589821, 12, 0, -589822, 12, 0, -589823, 12, 0, -655358, 12, 0, -720895, 12, 0, -786432, 12, 0, -786433, 12, 0, -851970, 12, 0, -851971, 12, 0, -917507, 12, 0, -983044, 12, 0, -1048581, 12, 0, -1048582, 12, 0, -1048583, 12, 0, -1048584, 12, 0, -1048585, 12, 0, -1048586, 12, 0, -1048587, 12, 0, -1048588, 12, 0, 131076, 12, 0, 131077, 12, 0, 131078, 12, 0, 131079, 12, 0, 131080, 12, 0, 131081, 12, 0, 131082, 12, 0, 131083, 12, 0, 262142, 12, 0, 262143, 12, 0, 196608, 12, 0, 196609, 12, 0, 196610, 12, 0, 196611, 12, 0, 196604, 12, 0, 196603, 12, 0, -196596, 12, 3, -131060, 12, 3, -65524, 12, 3, 12, 12, 3, 65548, 12, 3, -196579, 12, 3, -327651, 12, 3, -458723, 12, 3, -589795, 12, 3, -65508, 12, 3, -131043, 12, 0, -65507, 12, 0, -262115, 12, 0, -393187, 12, 0, -524259, 12, 2, -589794, 12, 0, -524258, 12, 0, -458722, 12, 0, -393186, 12, 0, -196578, 12, 0, -131042, 12, 0, -65506, 12, 0, -262114, 12, 0, -327650, 12, 0, 11, 12, 2, -65525, 12, 2, -131061, 12, 2, -196597, 12, 2, -262133, 12, 2, -589797, 12, 2)
 layer_1/tile_data = PackedInt32Array()
